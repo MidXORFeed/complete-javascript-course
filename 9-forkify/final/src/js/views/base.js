@@ -1,10 +1,15 @@
 export const elements = {
+    deleteBtn: document.querySelector('.delete__btn'),
+    ingredientInput: document.querySelector('#ingredientInput'),
+    unitInput: document.querySelector('#unitInput'),
+    quantityInput: document.querySelector('#quantityInput'),
     searchForm: document.querySelector('.search'),
     searchInput: document.querySelector('.search__field'),
     searchRes: document.querySelector('.results'),
     searchResList: document.querySelector('.results__list'),
     searchResPages: document.querySelector('.results__pages'),
     recipe: document.querySelector('.recipe'),
+    shoppingPane: document.querySelector('.shopping'),
     shopping: document.querySelector('.shopping__list'),
     likesMenu: document.querySelector('.likes__field'),
     likesList: document.querySelector('.likes__list')

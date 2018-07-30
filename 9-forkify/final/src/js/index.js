@@ -109,9 +109,14 @@ const controlRecipe = async () => {
 /** 
  * LIST CONTROLLER
  */
+
 const controlList = () => {
     // Create a new list IF there in none yet
     if (!state.list) state.list = new List();
+
+    // Display delete all button
+    if (state.list.items.length < 1)
+        listView.renderDeleteAll();
 
     // Add each ingredient to the list and UI
     state.recipe.ingredients.forEach(el => {
@@ -139,6 +144,21 @@ elements.shopping.addEventListener('click', e => {
     }
 });
 
+elements.shoppingPane.addEventListener('click', e => {
+    if (e.target.matches('.delete__btn, .delete__btn *')) {
+        state.list.deleteAllItems();
+        listView.unrenderAllItems();
+        listView.unrenderDeleteAll();
+    // Add Custom Ingredients 
+    } else if (e.target.matches('.additem__btn, .additem__btn *')) {
+        if (!state.list) state.list = new List();
+        if (elements.ingredientInput.value && elements.unitInput.value && elements.quantityInput.value) {
+            const item = state.list.addItem(elements.quantityInput.value, elements.unitInput.value, elements.ingredientInput.value);
+            listView.renderItem(item);
+            listView.clearCustomItemFields();
+        }
+    }
+});
 
 /** 
  * LIKE CONTROLLER

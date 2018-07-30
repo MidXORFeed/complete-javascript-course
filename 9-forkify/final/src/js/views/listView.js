@@ -18,7 +18,35 @@ export const renderItem = item => {
     elements.shopping.insertAdjacentHTML('beforeend', markup);
 };
 
+export const renderDeleteAll = () => {
+    const markup = `
+    <button class="btn delete__btn">
+        <svg class="delete__icon">
+            <use href="img/icons.svg#icon-circle-with-cross"></use>
+        </svg>
+        <span>Delete All Items</span>
+    </button>
+    `;
+    elements.shopping.insertAdjacentHTML('afterend', markup);
+}
+
+export const unrenderAllItems = () => {
+    while (elements.shopping.firstChild) {
+        elements.shopping.removeChild(elements.shopping.firstChild);
+    }
+}
+
+export const unrenderDeleteAll = () => {
+    document.querySelector('.delete__btn').remove();
+}
+
 export const deleteItem = id => {
     const item = document.querySelector(`[data-itemid="${id}"]`);
     if (item) item.parentElement.removeChild(item);
 };
+
+export const clearCustomItemFields = () => {
+    elements.ingredientInput.value = '';
+    elements.unitInput.value = '';
+    elements.quantityInput.value = '';
+}

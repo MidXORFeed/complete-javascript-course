@@ -65,7 +65,6 @@ body {
     height: 2.25rem;
     width: 2.25rem;
     fill: currentColor; }
-
 .btn-small, .btn-small:link, .btn-small:visited {
   font-size: 1.3rem;
   padding: 1rem 1.75rem;
@@ -440,6 +439,12 @@ body {
   padding: 3rem 4rem;
   display: flex;
   flex-direction: column; }
+  .additem__btn {
+    margin-top: 1.3rem;
+    margin-bottom: 1.3rem; }
+  .delete__btn {
+    margin-top: 1.3rem; 
+    margin-bottom: 1.3rem; }
   .shopping__list {
     list-style: none;
     max-height: 77rem;
